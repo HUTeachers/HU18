@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System;
 
 public class PointCounter : MonoBehaviour {
 	//Scriptet holder styr på point
@@ -20,11 +21,16 @@ public class PointCounter : MonoBehaviour {
 		score = 0;
 		
 	}
-	
-	
-		
-	//void Update: Hver gang der tegnes et nyt billede
-	void Update () {
+
+    internal int GetScore()
+    {
+        return score;
+    }
+
+
+
+    //void Update: Hver gang der tegnes et nyt billede
+    void Update () {
 	
 		//Hvis antal point er større eller lig med WinValue går spillet videre til scenen "Win"
 		if (score >= WinValue)
@@ -39,5 +45,7 @@ public class PointCounter : MonoBehaviour {
 	{
 		score = score + points;
 	}
+
+   
 
 }
