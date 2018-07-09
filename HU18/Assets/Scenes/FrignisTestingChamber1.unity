@@ -174,7 +174,12 @@ Prefab:
       propertyPath: FireKey
       value: 32
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1919421269116742, guid: d1894c46770c528479a0ec2502304715, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114469589064147836, guid: d1894c46770c528479a0ec2502304715, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: d1894c46770c528479a0ec2502304715, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &222374768
@@ -301,7 +306,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -949,3 +954,19 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2008091618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1919421269116742, guid: d1894c46770c528479a0ec2502304715,
+    type: 2}
+  m_PrefabInternal: {fileID: 187429323}
+--- !u!114 &2008091619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2008091618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db516975d723974ca25572020eca41a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

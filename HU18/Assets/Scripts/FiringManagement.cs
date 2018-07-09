@@ -82,10 +82,12 @@ public class FiringManagement : MonoBehaviour {
         GameObject temp;
         if(gunState == GunState.Normal)
         {
+            heat += 0.1f;
             temp = Instantiate(Bullet, transform.position + transform.right, Quaternion.identity);
         }
         else
         {
+            heat -= 0.5f;
             temp = Instantiate(BigBullet, transform.position + transform.right, Quaternion.identity);
         }
         AccelerateShot(temp);
@@ -108,12 +110,12 @@ public class FiringManagement : MonoBehaviour {
     {
         if(heat < 1f)
         {
-            heat += 0.1f;
+            
             gunState = GunState.Normal;
         }
         else
         {
-            heat -= 0.5f;
+            
             gunState = GunState.Overheat;
 
         }
