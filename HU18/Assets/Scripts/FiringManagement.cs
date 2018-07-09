@@ -16,8 +16,6 @@ public class FiringManagement : MonoBehaviour {
 	bool firing = false;
 
     GunState gunState = GunState.Normal;
-
-    float checktime = 0.3f;
     float heat = 0;
     public Slider slider;
 
@@ -30,8 +28,6 @@ public class FiringManagement : MonoBehaviour {
         fire.AddListener(Fire);
 		fire.AddListener(SetGunState);
 		fire.AddListener(SetSlider);
-		
-        
     }
 	
 	// Update is called once per frame
@@ -40,7 +36,6 @@ public class FiringManagement : MonoBehaviour {
 		{
 			StartCoroutine(AutoFire(ModeToWeaponCoolDownTime(gunState)));
 		}
-
 	}
 
 	IEnumerator AutoFire(float checktime)
@@ -48,13 +43,9 @@ public class FiringManagement : MonoBehaviour {
 		firing = true;
 		while (firing)
 		{
-            
             fire.Invoke();
-            
             yield return new WaitForSeconds(ModeToWeaponCoolDownTime(gunState));
-
 			firing = Input.GetKey(FireKey);
-
 		}
 
 	}
@@ -62,7 +53,6 @@ public class FiringManagement : MonoBehaviour {
     void SetSlider()
     {
         slider.value = heat;
-        
     }
 
     float ModeToWeaponCoolDownTime(GunState state)
@@ -110,14 +100,11 @@ public class FiringManagement : MonoBehaviour {
     {
         if(heat < 1f)
         {
-            
             gunState = GunState.Normal;
         }
         else
         {
-            
             gunState = GunState.Overheat;
-
         }
     }
 

@@ -14,31 +14,21 @@ public class PlayerManager : MonoBehaviour {
 
 	public State PlayerState;
 
-	private Jump jump;
+
 	private PlayerMovementSmooth pms;
 	private Climb climb;
 	private LadderMovement lame;
-
 	private GroundCheck gc;
-	private Whip whip;
-
-	private BoxCollider2D playerCollider;
 
 
 	// Use this for initialization
 	void Start () {
 
 		PlayerState = State.OnGround;
-
-		jump = GetComponent<Jump>();
 		pms = GetComponent<PlayerMovementSmooth>();
 		climb = GetComponent<Climb>();
 		lame = GetComponent<LadderMovement>();
-
-		whip = GetComponentInChildren<Whip>();
 		gc = GetComponentInChildren<GroundCheck>();
-
-		playerCollider = GetComponent<BoxCollider2D>();
 
 	}
 	
