@@ -6,6 +6,7 @@ public class PlayerMovementSmooth : MonoBehaviour {
 
 	//MoveSpeed styrer hastigheden af spillerens bevægelse
 	[Header("Default: 5")]
+    [Range(2f,10f)]
 	public float moveSpeed = 5;
 
 	//her kan man vælge om det skal være muligt at bevæge sig op/ned og højre/venstre
