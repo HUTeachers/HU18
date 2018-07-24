@@ -17,6 +17,6 @@ public static class Tools  {
 
 	public static bool CheckForComponent<T>(this MonoBehaviour GameObject) where T : Component
 	{
-		return GameObject.GetComponent<T>() == null;
+		return GameObject.GetComponent<T>() != null;
 	}
 }
