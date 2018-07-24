@@ -23,6 +23,19 @@ public class PlayerMovementSmooth : MonoBehaviour {
 	void Start ()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
+
+		if (GameManager.instance.DebugMode)
+		{
+			if (!X && !Y)
+			{
+				Debug.LogWarning("Neither X or Y enabled, enable one or both.");
+			}
+			if (!this.CheckForComponent<Rigidbody2D>())
+			{
+				Debug.LogWarning("Rigidbody Not Found On Player");
+			}
+		}
+
 	}
 
 	// Update is called once per frame
@@ -46,10 +59,8 @@ public class PlayerMovementSmooth : MonoBehaviour {
 			rb2d.velocity = new Vector2 (rb2d.velocity.x, deltaY);
 		}
 
-		if(!X && !Y)
-		{
-			throw new System.Exception("Neither X or Y enabled, enable one or both.");
-		}
+
+		
 
 	}
 

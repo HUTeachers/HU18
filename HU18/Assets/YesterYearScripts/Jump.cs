@@ -26,8 +26,23 @@ public class Jump : MonoBehaviour {
 		//finder scriptet GroundCheck, så det kan undersøges om figuren er grounded
 		groundCheck = gameObject.GetComponentInChildren <GroundCheck>();
 
-        //Debug.Log(groundCheck.ToString());
+
         remainingJumps = JumpCount;
+
+		if (GameManager.instance.DebugMode)
+		{
+			if(!this.CheckForComponent<Rigidbody2D>())
+			{
+				Debug.LogWarning("RigidBody Missing from Jump");
+			}
+
+			if(JumpPower < 1f || JumpCount < 1)
+			{
+				Debug.LogWarning("JumpPower or JumpCount too low");
+			}
+
+		}
+
 	}
 
 

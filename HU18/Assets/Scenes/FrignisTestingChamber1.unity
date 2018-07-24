@@ -350,10 +350,10 @@ GameObject:
   m_Component:
   - component: {fileID: 716253887}
   - component: {fileID: 716253886}
-  - component: {fileID: 716253888}
   - component: {fileID: 716253889}
   - component: {fileID: 716253890}
   - component: {fileID: 716253891}
+  - component: {fileID: 716253888}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -441,7 +441,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &716253889
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  X: 1
+  X: 0
   Y: 0
 --- !u!114 &716253891
 MonoBehaviour:
@@ -629,6 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6a6d363254aa44294b77bcaf6ab360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DebugMode: 1
 --- !u!1 &1235841525
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,7 +793,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Grounded: 0
-  DebugMode: 1
   GroundTag: Ground
 --- !u!1 &1745489725
 GameObject:

@@ -9,14 +9,14 @@ public class GroundCheck : MonoBehaviour {
 
 	//fortæller om figur er grounded
 	public bool Grounded;
-    public bool DebugMode = true;
 
     public string GroundTag = "Ground";
 
 	// Use this for initialization
 	void Start () 
 	{
-        if (DebugMode)
+
+        if (GameManager.instance.DebugMode)
         {
             Collider2D collider2Dref = gameObject.GetComponent<Collider2D>();
             if (collider2Dref == null)
@@ -63,7 +63,6 @@ public class GroundCheck : MonoBehaviour {
     void OnTriggerEnter2D (Collider2D col)
     {
 
-        Debug.Log(col.ToString());
     }
 
 	
