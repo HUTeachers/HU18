@@ -15,13 +15,13 @@ public class DealDamageToTag : MonoBehaviour
 	{
 		if (other.gameObject.tag == damageTag)
 		{
-			other.gameObject.GetComponent<Health>().ReceiveDamage(amount);
+			other.gameObject.GetComponent<Enemy>().TakeDamage(amount);
 		}
 	}
 
 	//Kan bruges fra knapper
 	public void DealDamageToTagButton()
 	{
-		GameObject.FindGameObjectWithTag (damageTag).GetComponent<Health> ().ReceiveDamage (amount);
+		GameObject.FindGameObjectWithTag (damageTag).GetComponent<Enemy>().TakeDamage(amount);
 	}
 }
