@@ -16,7 +16,7 @@ public class DealDamage : MonoBehaviour {
 		//Hvis "other" har et tag, der hedder "Player" sendes Damage til funktionen ReceiveDamage i scriptet Health på Player
 		if (ting.gameObject.tag == "Player")
 		{
-			ting.gameObject.GetComponent<Health>().ReceiveDamage(Damage);
+			ting.gameObject.GetComponent<Health>().TakeDamage(Damage);
 		}
 	}
 }

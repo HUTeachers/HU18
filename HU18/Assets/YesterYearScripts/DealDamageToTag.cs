@@ -15,7 +15,7 @@ public class DealDamageToTag : MonoBehaviour
 	{
 		if (other.gameObject.tag == damageTag)
 		{
-			other.gameObject.GetComponent<Enemy>().TakeDamage(amount);
+			other.gameObject.GetComponent<IDamageAble>().TakeDamage(amount);
 		}
 	}
 

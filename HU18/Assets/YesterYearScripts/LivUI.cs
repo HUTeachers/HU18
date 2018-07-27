@@ -38,18 +38,18 @@ public class LivUI : MonoBehaviour {
         //Sæt farven i liv grafikken til fuldt liv
         livGrafik.color = fuldtLiv;
         //Sætter værdien for hvad det maksimale liv spilleren kan have til spillerens start liv
-        maksLiv = liv.HealthValue;
+        maksLiv = liv.GetHealth();
 
     }
 	
 	void Update ()
     {
         //Ændre størrelsen på liv grafikken alt efter hvor meget liv man har
-        livGrafik.fillAmount = liv.HealthValue / maksLiv;
+        livGrafik.fillAmount = liv.GetHealth() / maksLiv;
         //Ændre farven på liv grafikken alt efter hvor meget liv man har
         livGrafik.color = Color.Lerp(ingenLiv, fuldtLiv, livGrafik.fillAmount);
         //Indsætter hvor meget liv spilleren har i et tekstfelt midt i grafikken
-        livText.text = liv.HealthValue.ToString();
+        livText.text = liv.GetHealth().ToString();
 
 	}
 }

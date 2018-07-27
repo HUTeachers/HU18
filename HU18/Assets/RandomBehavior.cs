@@ -7,7 +7,10 @@ using UnityEngine.Events;
 
 public class RandomBehavior : MonoBehaviour {
 
-	public GameObject bulletPrefab;
+    [SerializeField]
+	private GameObject bulletPrefab;
+
+    private Transform playerRef;
 
 	List<EnemyBehavior> Actions;
 
@@ -15,13 +18,18 @@ public class RandomBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        playerRef = GameObject.FindGameObjectWithTag("Player").transform;
+
 		Actions = new List<EnemyBehavior>();
 
         EnemyBehavior moveBehavior = new EnemyBehavior(new Func<IEnumerator>(MoveToPlace), 20);
-        EnemyBehavior spamBehavior = new EnemyBehavior(new Func<IEnumerator>(DebugMessage), 20);
+
+        EnemyBehavior shootBehavior = new EnemyBehavior(new Func<IEnumerator>(Shoot), 20);
+
 
 		Actions.Add(moveBehavior);
-		Actions.Add(spamBehavior);
+		Actions.Add(shootBehavior);
 
 		StartCoroutine(BehaveTimer());
 	}
@@ -68,6 +76,14 @@ public class RandomBehavior : MonoBehaviour {
 		StopCoroutine(behavior);
 
 	}
+
+    IEnumerator Shoot()
+    {
+        Vector3 playerDirection = playerRef.position -transform.position;
+        GameObject temp = Instantiate(bulletPrefab, transform.position + playerDirection.normalized + Tools.RandomizeVector(0.1f), Quaternion.identity);
+        temp.GetComponent<Rigidbody2D>().AddForce(playerDirection.normalized, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.5f);
+    }
 
 	IEnumerator MoveToPlace()
 	{

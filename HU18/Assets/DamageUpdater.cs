@@ -31,7 +31,7 @@ public class DamageUpdater : MonoBehaviour {
     {
         if (go.tag == PlayerTag)
         {
-            float temp = (float)go.GetComponent<Health>().HealthValue / (float)100;
+            float temp = (float)go.GetComponent<Health>().GetHealth() / (float)100;
             image.material.SetFloat("Vector1_B7AA170B", temp);
         }
     }

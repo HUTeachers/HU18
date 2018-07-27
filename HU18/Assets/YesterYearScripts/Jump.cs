@@ -10,9 +10,11 @@ public class Jump : MonoBehaviour {
 
 
 	//Den kraft man hopper med
-	public float JumpPower = 6f;
-   
-    public int JumpCount = 1;
+    [SerializeField]
+    private float JumpPower = 6f;
+
+    [SerializeField]
+    private int JumpCount = 1;
 
     int remainingJumps;
 

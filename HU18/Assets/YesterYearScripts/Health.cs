@@ -2,12 +2,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class Health : MonoBehaviour {
-	//Scriptet holder styr på Health
-	
-	
-	//Health værdi fra start
-	public int HealthValue = 100;
+public class Health : MonoBehaviour, IDamageAble {
+
+
+    //Health værdi fra start
+    [SerializeField]
+    private int HealthValue = 100;
+
+
 
     private void Start()
     {
@@ -26,13 +28,18 @@ public class Health : MonoBehaviour {
         //Damage testing
         if(GameManager.instance.DebugMode && Input.GetKeyDown(KeyCode.K))
         {
-            ReceiveDamage(5);
+            TakeDamage(5);
         }
 	}
 	
 	
+    public int GetHealth()
+    {
+        return HealthValue;
+    }
+
 	// modtager damage værdi fra andre objekter, trækker damage fra Health
-	public void ReceiveDamage (int damage) 
+	public void TakeDamage (int damage) 
 	{
 		HealthValue = HealthValue - damage;
         GameManager.damageEvent.Invoke(gameObject, damage);

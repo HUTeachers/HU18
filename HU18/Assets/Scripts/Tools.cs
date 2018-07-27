@@ -30,4 +30,9 @@ public static class Tools  {
     {
         return new Vector3(vec2.x, vec2.y, 0f);
     }
+
+    public static Vector3 RandomizeVector(float randomFactor)
+    {
+        return new Vector3(UnityEngine.Random.Range(-randomFactor, randomFactor), UnityEngine.Random.Range(-randomFactor, randomFactor));
+    }
 }

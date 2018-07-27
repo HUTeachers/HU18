@@ -24,6 +24,6 @@ public class CameraSmoothFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        transform.position = Vector3.SmoothDamp(transform.position, playerPos.position + offset + playerRb.velocity.Vector2ToVector3(), ref speed, 0.5f);
+        transform.position = Vector3.SmoothDamp(transform.position, playerPos.position + offset + playerRb.velocity.Vector2ToVector3(), ref speed, 0.4f);
 	}
 }
