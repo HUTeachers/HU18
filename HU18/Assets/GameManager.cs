@@ -1,7 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class DamageEvent : UnityEvent<GameObject, float> { }
+public class DamageEvent : UnityEvent<GameObject, float> {
+
+    public static DamageEvent operator +(DamageEvent left, UnityAction<GameObject,float> right)
+    {
+        left.AddListener(right);
+        return left;
+    }
+
+}
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;

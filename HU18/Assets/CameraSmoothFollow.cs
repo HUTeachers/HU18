@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraSmoothFollow : MonoBehaviour {
+    [SerializeField]
     private string Tag = "Player";
     Vector3 offset = Vector3.back * 10;
     Transform playerPos;

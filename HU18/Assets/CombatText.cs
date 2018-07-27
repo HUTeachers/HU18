@@ -6,7 +6,7 @@ public class CombatText : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GameManager.damageEvent.AddListener(CombatTextDemonstration);
+		GameManager.damageEvent += CombatTextDemonstration;
 	}
 	
 	// Update is called once per frame

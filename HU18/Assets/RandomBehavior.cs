@@ -33,12 +33,6 @@ public class RandomBehavior : MonoBehaviour {
 
 		StartCoroutine(BehaveTimer());
 	}
-	
-	// Update is called once per frame
-	void Update () {
-
-			
-	}
 
 	IEnumerator BehaveTimer()
 	{
@@ -83,6 +77,7 @@ public class RandomBehavior : MonoBehaviour {
         GameObject temp = Instantiate(bulletPrefab, transform.position + playerDirection.normalized + Tools.RandomizeVector(0.1f), Quaternion.identity);
         temp.GetComponent<Rigidbody2D>().AddForce(playerDirection.normalized, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.5f);
+        StopCoroutine(behavior);
     }
 
 	IEnumerator MoveToPlace()

@@ -15,28 +15,22 @@ public class GroundCheck : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-
         if (GameManager.instance.DebugMode)
         {
             Collider2D collider2Dref = gameObject.GetComponent<Collider2D>();
             if (collider2Dref == null)
             {
                 Debug.LogWarning("GroundCheck: Collider2D Not Found!");
-
             }
             else if(collider2Dref.offset.y > 0f)
             {
                 Debug.LogWarning("GroundCheck: Y offset above zero!");
             }
-
             if (!this.CheckForTag(GroundTag))
             {
                 Debug.LogWarning("GroundCheck: Tag undefined, no tag available called: " + GroundTag);
             }
-           
-
         }
-
 		//figur sættes fra start til ikke at være grounded
 		Grounded = false;
 	}

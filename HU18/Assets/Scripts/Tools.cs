@@ -2,6 +2,7 @@
 using System.Linq;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.Events;
 
 public static class Tools  {
 
@@ -28,11 +29,14 @@ public static class Tools  {
 
     public static Vector3 Vector2ToVector3(this Vector2 vec2)
     {
-        return new Vector3(vec2.x, vec2.y, 0f);
+        return new Vector3(vec2.x, vec2.y);
     }
 
     public static Vector3 RandomizeVector(float randomFactor)
     {
         return new Vector3(UnityEngine.Random.Range(-randomFactor, randomFactor), UnityEngine.Random.Range(-randomFactor, randomFactor));
     }
+
+    
+
 }

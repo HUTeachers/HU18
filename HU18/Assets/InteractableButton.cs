@@ -15,6 +15,9 @@ public class InteractableButton : MonoBehaviour, IDamageAble {
 
     public void TakeDamage(int damage)
     {
-        AttachedObject.Activate();
+        if(ActivateObject != null)
+        {
+            AttachedObject.Activate();
+        }
     }
 }
