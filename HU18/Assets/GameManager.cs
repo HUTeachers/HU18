@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour {
 	public static DamageEvent damageEvent;
 	public bool DebugMode = true;
 
+    
+
     //Instance trick
     private void Awake()
     {
@@ -23,4 +25,6 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
 }

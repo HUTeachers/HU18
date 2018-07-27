@@ -8,6 +8,12 @@ public struct EnemyBehavior {
 	public Func<IEnumerator> action;
 	public int chance;
 
+    public EnemyBehavior(Func<IEnumerator> inputaction, int inputchance)
+    {
+        chance = inputchance;
+        action = inputaction;
+    }
+
 	private static EnemyBehavior createBlank()
 	{
 		EnemyBehavior enemyBehavior = new EnemyBehavior
@@ -22,6 +28,6 @@ public struct EnemyBehavior {
 	{
 		get { return createBlank(); }
 	}
-
+    
 }
 

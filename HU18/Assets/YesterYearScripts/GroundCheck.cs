@@ -29,7 +29,7 @@ public class GroundCheck : MonoBehaviour {
                 Debug.LogWarning("GroundCheck: Y offset above zero!");
             }
 
-            if (!InternalEditorUtility.tags.Contains(GroundTag))
+            if (!this.CheckForTag(GroundTag))
             {
                 Debug.LogWarning("GroundCheck: Tag undefined, no tag available called: " + GroundTag);
             }

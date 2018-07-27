@@ -17,17 +17,8 @@ public class RandomBehavior : MonoBehaviour {
 	void Start () {
 		Actions = new List<EnemyBehavior>();
 
-		EnemyBehavior moveBehavior = new EnemyBehavior
-		{
-			action = new Func<IEnumerator>(MoveToPlace),
-			chance = 20
-		};
-
-		EnemyBehavior spamBehavior = new EnemyBehavior
-		{
-			action = new Func<IEnumerator>(DebugMessage),
-			chance = 20
-		};
+        EnemyBehavior moveBehavior = new EnemyBehavior(new Func<IEnumerator>(MoveToPlace), 20);
+        EnemyBehavior spamBehavior = new EnemyBehavior(new Func<IEnumerator>(DebugMessage), 20);
 
 		Actions.Add(moveBehavior);
 		Actions.Add(spamBehavior);

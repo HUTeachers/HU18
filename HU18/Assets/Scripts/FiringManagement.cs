@@ -57,6 +57,9 @@ public class FiringManagement : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Sets the gun cooling.
+    /// </summary>
     private void StartGunCooling()
     {
         if(coolingCoroutine != null)
@@ -109,14 +112,19 @@ public class FiringManagement : MonoBehaviour
         if (gunState == GunState.Normal)
         {
             heat += 0.1f;
-            temp = Instantiate(Bullet, transform.position + transform.right, Quaternion.identity);
+            temp = Instantiate(Bullet, transform.position + transform.right + RandomizeVector (0.1f), Quaternion.identity);
         }
         else
         {
             heat -= 0.5f;
-            temp = Instantiate(BigBullet, transform.position + transform.right, Quaternion.identity);
+            temp = Instantiate(BigBullet, transform.position + transform.right + RandomizeVector(0.1f), Quaternion.identity);
         }
         AccelerateShot(temp);
+    }
+
+    Vector3 RandomizeVector(float randomFactor)
+    {
+        return new Vector3(Random.Range(-randomFactor, randomFactor), Random.Range(-randomFactor, randomFactor));
     }
 
     void AccelerateShot(GameObject gameObject)
@@ -124,11 +132,11 @@ public class FiringManagement : MonoBehaviour
         Rigidbody2D rb2d = gameObject.GetComponent<Rigidbody2D>();
         if (gunState == GunState.Normal)
         {
-            rb2d.AddForce(transform.right, ForceMode2D.Impulse);
+            rb2d.AddForce(transform.right + RandomizeVector(0.1f), ForceMode2D.Impulse);
         }
         else
         {
-            rb2d.AddForce(transform.right * 3f, ForceMode2D.Impulse);
+            rb2d.AddForce((transform.right + RandomizeVector(0.1f)) * 3f, ForceMode2D.Impulse);
         }
     }
 
