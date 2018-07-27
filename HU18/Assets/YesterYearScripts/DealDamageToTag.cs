@@ -13,14 +13,27 @@ public class DealDamageToTag : MonoBehaviour
 	//Bruges i kollisioer
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.gameObject.tag == damageTag)
-		{
-			other.gameObject.GetComponent<IDamageAble>().TakeDamage(amount);
-		}
+        OnTriggerEnter2D(other.collider);
 	}
 
-	//Kan bruges fra knapper
-	public void DealDamageToTagButton()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(damageTag))
+        {
+            collision.gameObject.GetComponent<IDamageAble>().TakeDamage(amount);
+        }
+        else
+        {
+            IDamageAble temp = collision.gameObject.GetComponent<IDamageAble>();
+            if (temp != null)
+            {
+                temp.TakeDamage(0);
+            }
+        }
+    }
+
+    //Kan bruges fra knapper
+    public void DealDamageToTagButton()
 	{
 		GameObject.FindGameObjectWithTag (damageTag).GetComponent<Enemy>().TakeDamage(amount);
 	}
