@@ -19,4 +19,9 @@ public class CombatText : MonoBehaviour {
 		Debug.Log("Hej Daniel, vidste du at " + damagetaker.name + " tog hele " + damage + " skade");
 	}
 
+    private void OnDisable()
+    {
+        GameManager.damageEvent -= CombatTextDemonstration;
+    }
+
 }

@@ -9,6 +9,12 @@ public class DamageEvent : UnityEvent<GameObject, float> {
         return left;
     }
 
+    public static DamageEvent operator -(DamageEvent left, UnityAction<GameObject, float> right)
+    {
+        left.RemoveListener(right);
+        return left;
+    }
+
 }
 
 public class GameManager : MonoBehaviour {

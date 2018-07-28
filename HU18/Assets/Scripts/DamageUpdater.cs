@@ -30,4 +30,10 @@ public class DamageUpdater : MonoBehaviour {
         }
     }
 
+    //Remember to remove events
+    private void OnDisable()
+    {
+        GameManager.damageEvent -= PlayerDamageListener;
+    }
+
 }
