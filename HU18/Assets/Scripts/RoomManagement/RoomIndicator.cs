@@ -3,11 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class RoomIndicator : MonoBehaviour {
-    public string[] connectedRoomNames;
+public enum DoorDirection
+{
+    Up,
+    Down,
+    Left,
+    Right
+}
 
-    private void Start()
+public class RoomIndicator : MonoBehaviour {
+
+    [SerializeField]
+    private string connectedRoom;
+
+    [SerializeField]
+    private DoorDirection direction;
+
+    public string GetConnectedRoom()
     {
-        RoomController.InitiateController();
+        return connectedRoom;
     }
+
+    public DoorDirection GetDirection()
+    {
+        return direction;
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            RoomController.LoadRoom(connectedRoom);
+        }    
+    }
+
 }

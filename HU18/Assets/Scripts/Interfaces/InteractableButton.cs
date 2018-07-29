@@ -10,7 +10,8 @@ public class InteractableButton : MonoBehaviour, IDamageAble {
     // Use this for initialization
     private void Start()
     {
-        AttachedObject = ActivateObject.GetComponent<IActivatableObject>();
+
+        //AttachedObject = ActivateObject.GetComponent<IActivatableObject>();
     }
 
     public void TakeDamage(int damage)

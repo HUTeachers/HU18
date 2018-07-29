@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class RoomController : MonoBehaviour {
+
+    //public static List<string> attachedScenes;
+
     /// <summary>
     /// Initializes the RoomController module. This method has multiple uses. It can be used to wake up
     /// the module, to get the current instance of the RoomController module.
@@ -13,7 +16,7 @@ public class RoomController : MonoBehaviour {
     {
         if (instance == null)
         {
-            var go = new GameObject("RoomController");
+            GameObject go = new GameObject("RoomController");
             instance = go.AddComponent<RoomController>();
         }
         return instance;
@@ -28,13 +31,13 @@ public class RoomController : MonoBehaviour {
     }
 
     private void OnEnable()
-    {
-        if(instance == null)
+    { 
+        if (instance == null)
         {
             instance = this;
             SceneManager.sceneLoaded += OnSceneLoaded;
             SceneManager.activeSceneChanged += NewActiveScene;
-            EstablishConnections(currentScene);
+            //EstablishConnections(currentScene);
             DontDestroyOnLoad(this);
         } else
         {
@@ -50,21 +53,26 @@ public class RoomController : MonoBehaviour {
     private void EstablishConnections(Scene scene)
     {
         //Search for array of connected scenes from RoomIndicator object in new scene
-        string[] nameArray = null;
+        List<string> nameList = new List<string>();
+
+
+        
         foreach(GameObject go in scene.GetRootGameObjects())
         {
-            var indicator = go.GetComponentInChildren<RoomIndicator>();
+            RoomIndicator indicator = go.GetComponentInChildren<RoomIndicator>();
             if(indicator != null)
             {
-                nameArray = indicator.connectedRoomNames;
-                break;
+                nameList.Add(indicator.GetConnectedRoom());
+                
             }
-        }
+        } 
+
+        string[] nameArray = nameList.ToArray();
 
         //Unload all unused scenes
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
-            var currentScene = SceneManager.GetSceneAt(i);
+            Scene currentScene = SceneManager.GetSceneAt(i);
             if (currentScene != scene)
             {
                 SceneManager.UnloadSceneAsync(currentScene);
