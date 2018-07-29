@@ -5,7 +5,8 @@ using UnityEngine;
 public class ActivateKill : MonoBehaviour, IActivatableObject {
     public void Activate()
     {
-        Destroy(this.gameObject);
+        gameObject.SetActive(false);
+        //Destroy(this.gameObject);
     }
 
 }

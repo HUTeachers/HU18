@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,11 @@ using UnityEngine.SceneManagement;
 public class RoomController : MonoBehaviour {
 
     //public static List<string> attachedScenes;
+
+    /// <summary>
+    /// Used to remember states
+    /// </summary>
+    private Dictionary<GameObject, bool> administeredObjects;
 
     /// <summary>
     /// Initializes the RoomController module. This method has multiple uses. It can be used to wake up
@@ -30,10 +36,22 @@ public class RoomController : MonoBehaviour {
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            foreach (KeyValuePair<GameObject,bool> item in administeredObjects)
+            {
+                Debug.Log(item.Key.name + " " + item.Value);
+            }
+        }
+    }
+
     private void OnEnable()
     { 
         if (instance == null)
         {
+            administeredObjects = new Dictionary<GameObject, bool>();
             instance = this;
             SceneManager.sceneLoaded += OnSceneLoaded;
             SceneManager.activeSceneChanged += NewActiveScene;
@@ -75,7 +93,7 @@ public class RoomController : MonoBehaviour {
             Scene currentScene = SceneManager.GetSceneAt(i);
             if (currentScene != scene)
             {
-                SceneManager.UnloadSceneAsync(currentScene);
+                //SceneManager.UnloadSceneAsync(currentScene);
             }
         }
 
@@ -84,7 +102,11 @@ public class RoomController : MonoBehaviour {
         {
             foreach(string name in nameArray)
             {
-                SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
+                if(SceneManager.GetSceneByName(name).buildIndex == -1)
+                {
+                    SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
+                }
+                
             }
         }
     }
@@ -113,7 +135,7 @@ public class RoomController : MonoBehaviour {
             //SceneIsLoaded
             instance.DisableScene(currentScene);
             SceneManager.SetActiveScene(newScene);
-            instance.EnableScene(currentScene);
+            instance.EnableScene(currentScene); 
         }
     }
 
@@ -132,15 +154,81 @@ public class RoomController : MonoBehaviour {
     {
         foreach (GameObject go in scene.GetRootGameObjects())
         {
+            if(!administeredObjects.ContainsKey(go))
+            {
+                administeredObjects.Add(go, go.activeInHierarchy);
+            }
+            
+            RecursiveChildObjectStateSave(go);
             go.SetActive(false);
         }
     }
+
+ 
 
     private void EnableScene(Scene scene)
     {
         foreach(GameObject go in scene.GetRootGameObjects())
         {
-            go.SetActive(true);
+            if(administeredObjects.ContainsKey(go))
+            {
+                go.SetActive(administeredObjects[go]);
+
+                RecursiveChildSetState(go);
+
+            }
+            else
+            {
+                go.SetActive(true);
+            }
+            
+        }
+    }
+
+    private void RecursiveChildObjectStateSave(GameObject go)
+    {
+        int childcount = go.transform.childCount;
+        if (childcount != 0)
+        {
+            for (int i = 0; i < childcount; i++)
+            {
+                GameObject child = go.transform.GetChild(i).gameObject;
+
+                if (!administeredObjects.ContainsKey(child))
+                {
+                    administeredObjects.Add(child, child.activeSelf);
+                    
+                }
+                else if(administeredObjects.ContainsKey(child) && administeredObjects[child] != child.activeSelf )
+                {
+                    administeredObjects[child] = child.activeSelf;
+                    
+                }
+
+                RecursiveChildObjectStateSave(child);
+
+            }
+        }
+    }
+
+    private void RecursiveChildSetState(GameObject go)
+    {
+        int childcount = go.transform.childCount;
+        if (childcount != 0)
+        {
+            for (int i = 0; i < childcount; i++)
+            {
+                GameObject child = go.transform.GetChild(i).gameObject;
+                if (administeredObjects.ContainsKey(child))
+                {
+                    bool state = administeredObjects[child];
+
+                    child.SetActive(state);
+
+                    
+                }
+                RecursiveChildSetState(child);
+            }
         }
     }
 }

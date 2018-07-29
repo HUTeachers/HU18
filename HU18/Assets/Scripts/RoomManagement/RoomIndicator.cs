@@ -34,8 +34,17 @@ public class RoomIndicator : MonoBehaviour {
     {
         if (collision.CompareTag("Player"))
         {
-            RoomController.LoadRoom(connectedRoom);
+            if(Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                RoomController.LoadRoom(connectedRoom);
+            }
+            
         }    
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        OnTriggerEnter2D(collision);
     }
 
 }
