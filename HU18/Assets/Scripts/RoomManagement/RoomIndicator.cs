@@ -46,5 +46,4 @@ public class RoomIndicator : MonoBehaviour {
     {
         OnTriggerEnter2D(collision);
     }
-
 }

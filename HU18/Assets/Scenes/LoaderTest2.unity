@@ -400,7 +400,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4984000686187042, guid: 2dfa66e460437494fbc1fc7d52673304, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.35
+      value: -4.0908546
       objectReference: {fileID: 0}
     - target: {fileID: 4984000686187042, guid: 2dfa66e460437494fbc1fc7d52673304, type: 2}
       propertyPath: m_LocalPosition.y
@@ -429,11 +429,6 @@ Prefab:
     - target: {fileID: 4984000686187042, guid: 2dfa66e460437494fbc1fc7d52673304, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114329611761218226, guid: 2dfa66e460437494fbc1fc7d52673304,
-        type: 2}
-      propertyPath: connectedRoom
-      value: LoaderTest2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dfa66e460437494fbc1fc7d52673304, type: 2}

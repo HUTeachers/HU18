@@ -5,9 +5,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class RoomController : MonoBehaviour {
-
-    //public static List<string> attachedScenes;
-
     /// <summary>
     /// Used to remember states
     /// </summary>
@@ -73,15 +70,12 @@ public class RoomController : MonoBehaviour {
         //Search for array of connected scenes from RoomIndicator object in new scene
         List<string> nameList = new List<string>();
 
-
-        
         foreach(GameObject go in scene.GetRootGameObjects())
         {
             RoomIndicator indicator = go.GetComponentInChildren<RoomIndicator>();
             if(indicator != null)
             {
                 nameList.Add(indicator.GetConnectedRoom());
-                
             }
         } 
 
@@ -106,7 +100,6 @@ public class RoomController : MonoBehaviour {
                 {
                     SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
                 }
-                
             }
         }
     }
@@ -158,7 +151,6 @@ public class RoomController : MonoBehaviour {
             {
                 administeredObjects.Add(go, go.activeInHierarchy);
             }
-            
             RecursiveChildObjectStateSave(go);
             go.SetActive(false);
         }
@@ -173,15 +165,12 @@ public class RoomController : MonoBehaviour {
             if(administeredObjects.ContainsKey(go))
             {
                 go.SetActive(administeredObjects[go]);
-
                 RecursiveChildSetState(go);
-
             }
             else
             {
                 go.SetActive(true);
             }
-            
         }
     }
 
@@ -197,16 +186,12 @@ public class RoomController : MonoBehaviour {
                 if (!administeredObjects.ContainsKey(child))
                 {
                     administeredObjects.Add(child, child.activeSelf);
-                    
                 }
                 else if(administeredObjects.ContainsKey(child) && administeredObjects[child] != child.activeSelf )
                 {
                     administeredObjects[child] = child.activeSelf;
-                    
                 }
-
                 RecursiveChildObjectStateSave(child);
-
             }
         }
     }
@@ -222,10 +207,7 @@ public class RoomController : MonoBehaviour {
                 if (administeredObjects.ContainsKey(child))
                 {
                     bool state = administeredObjects[child];
-
                     child.SetActive(state);
-
-                    
                 }
                 RecursiveChildSetState(child);
             }

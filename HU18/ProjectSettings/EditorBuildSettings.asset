@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FrignisTestingChamber1.unity
     guid: 40d5c4553f407774db372a6c9c8f9cc0
+  - enabled: 1
+    path: Assets/Scenes/LoaderTest2.unity
+    guid: fc3210dd46dbc674bbcaa87e53a88bc9
   m_configObjects: {}
