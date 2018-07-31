@@ -59,6 +59,8 @@ GameObject:
   - component: {fileID: 50387198357088746}
   - component: {fileID: 114046282114995656}
   - component: {fileID: 95759788237047632}
+  - component: {fileID: 114758497005742110}
+  - component: {fileID: 114361350908628954}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -346,6 +348,17 @@ MonoBehaviour:
   slider: {fileID: 0}
   Bullet: {fileID: 1621947450233224, guid: 222fa8ea1da8b6e448ecad611ed83def, type: 2}
   BigBullet: {fileID: 1621947450233224, guid: 6e981f51312c4d142a899f6f4430d8d5, type: 2}
+--- !u!114 &114361350908628954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1805076996516676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11319949cdd7a9946bace4a6cf7763e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114423420925778832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -384,6 +397,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Grounded: 0
   GroundTag: Ground
+--- !u!114 &114758497005742110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1805076996516676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3ec6f3577bc0a4d8a2c2536e41fd23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212748997403598038
 SpriteRenderer:
   m_ObjectHideFlags: 1

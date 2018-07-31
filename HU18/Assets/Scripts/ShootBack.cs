@@ -7,7 +7,7 @@ public class ShootBack : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb2d = GetComponent<Rigidbody2D>();
-		transform.parent.GetComponent<FiringManagement>().fire.AddListener(KickBack);
+		GameManager.fire.AddListener(KickBack);
 	}
 	
 	// Update is called once per frame

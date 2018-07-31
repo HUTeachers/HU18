@@ -13,27 +13,24 @@ public enum GunState
 public class FiringManagement : MonoBehaviour
 {
     public KeyCode FireKey;
-    public UnityEvent fire;
+    
     private bool firing = false;
 
     private GunState gunState = GunState.Normal;
     private float heat = 0;
+
     private IEnumerator coolingCoroutine;
-    
-    public Slider slider;
 
     public GameObject Bullet;
     public GameObject BigBullet;
-    
+
 
     // Use this for initialization
-    void Awake()
+    void Start()
     {
-        fire = new UnityEvent();
-        fire.AddListener(Fire);
-        fire.AddListener(SetGunState);
-        fire.AddListener(SetSlider);
-        fire.AddListener(StartGunCooling);
+        GameManager.fire.AddListener(Fire);
+        GameManager.fire.AddListener(SetGunState);
+        GameManager.fire.AddListener(StartGunCooling);
     }
 
     // Update is called once per frame
@@ -50,7 +47,8 @@ public class FiringManagement : MonoBehaviour
         firing = true;
         while (firing)
         {
-            fire.Invoke();
+            
+            GameManager.fire.Invoke();
             yield return new WaitForSeconds(ModeToWeaponCoolDownTime(gunState));
             firing = Input.GetKey(FireKey);
         }
@@ -83,15 +81,14 @@ public class FiringManagement : MonoBehaviour
                 StopCoroutine(coolingCoroutine);
                 going = false;
             }
-            SetSlider();
             yield return new WaitForEndOfFrame();
             
         }
     }
 
-    private void SetSlider()
+    public float GetHeat()
     {
-        slider.value = heat;
+        return heat;
     }
 
     float ModeToWeaponCoolDownTime(GunState state)
@@ -148,6 +145,15 @@ public class FiringManagement : MonoBehaviour
             gunState = GunState.Overheat;
         }
     }
+
+    private void OnDisable()
+    {
+        GameManager.fire.RemoveListener(Fire);
+        GameManager.fire.RemoveListener(SetGunState);
+        GameManager.fire.RemoveListener(StartGunCooling);
+
+    }
+
 }
 
 

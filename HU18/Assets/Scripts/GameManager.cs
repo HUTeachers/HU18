@@ -20,25 +20,36 @@ public class DamageEvent : UnityEvent<GameObject, float> {
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
 	public static DamageEvent damageEvent;
-	public bool DebugMode = true;
+    public static UnityEvent fire;
+    public bool DebugMode = true;
 
     
 
     //Instance trick
     private void Awake()
     {
+        if(instance == null)
+        {
+            damageEvent = new DamageEvent();
+            fire = new UnityEvent();
+        }
 		this.InstanceTrick(ref instance);
-		damageEvent = new DamageEvent();
+		
+        
     }
     // Use this for initialization
     void Start () {
-		
-	}
+        fire.AddListener(ShoutOnInvoke);
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
+    void ShoutOnInvoke()
+    {
+        Debug.Log("Invoked");
+    }
 
 }

@@ -33,17 +33,6 @@ public class RoomController : MonoBehaviour {
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            foreach (KeyValuePair<GameObject,bool> item in administeredObjects)
-            {
-                Debug.Log(item.Key.name + " " + item.Value);
-            }
-        }
-    }
-
     private void OnEnable()
     { 
         if (instance == null)

@@ -21,6 +21,11 @@ public class DamageUpdater : MonoBehaviour {
         }
 	}
 
+    /// <summary>
+    /// Opdatere health orben.
+    /// </summary>
+    /// <param name="go"></param>
+    /// <param name="damage"></param>
     void PlayerDamageListener(GameObject go, float damage)
     {
         if (go.CompareTag(PlayerTag))
