@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-        fire.AddListener(ShoutOnInvoke);
     }
 	
 	// Update is called once per frame
