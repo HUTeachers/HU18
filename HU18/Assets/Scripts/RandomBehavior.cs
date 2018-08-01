@@ -16,6 +16,13 @@ public class RandomBehavior : MonoBehaviour {
 
 	IEnumerator behavior;
 
+    [SerializeField]
+    private bool AddMoveBehavior = true;
+
+    [SerializeField]
+    private bool AddShootBehavior = true;
+
+
 	// Use this for initialization
 	void Start () {
 
@@ -23,13 +30,17 @@ public class RandomBehavior : MonoBehaviour {
 
 		Actions = new List<EnemyBehavior>();
 
-        EnemyBehavior moveBehavior = new EnemyBehavior(new Func<IEnumerator>(MoveToPlace), 20);
+        if(AddMoveBehavior)
+        {
+            EnemyBehavior moveBehavior = new EnemyBehavior(new Func<IEnumerator>(MoveToPlace), 20);
+            Actions.Add(moveBehavior);
+        }
 
-        EnemyBehavior shootBehavior = new EnemyBehavior(new Func<IEnumerator>(Shoot), 20);
-
-
-		Actions.Add(moveBehavior);
-		Actions.Add(shootBehavior);
+        if (AddShootBehavior)
+        {
+            EnemyBehavior shootBehavior = new EnemyBehavior(new Func<IEnumerator>(Shoot), 20);
+            Actions.Add(shootBehavior);
+        }
 
 		StartCoroutine(BehaveTimer());
 	}
