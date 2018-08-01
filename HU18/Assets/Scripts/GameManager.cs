@@ -17,7 +17,30 @@ public class DamageEvent : UnityEvent<GameObject, float> {
 
 }
 
+public class EnemySpawnEvent : UnityEvent<int>
+{
+
+    public static EnemySpawnEvent operator +(EnemySpawnEvent left, UnityAction<int> right)
+    {
+        left.AddListener(right);
+        return left;
+    }
+
+    public static EnemySpawnEvent operator -(EnemySpawnEvent left, UnityAction<int> right)
+    {
+        left.RemoveListener(right);
+        return left;
+    }
+
+}
+
 public class GameManager : MonoBehaviour {
+
+    /// <summary>
+    /// Handles current room and state
+    /// </summary>
+    public static RoomStateManager stateManager;
+
     public static GameManager instance;
 	public static DamageEvent damageEvent;
     public static UnityEvent fire;
@@ -39,6 +62,7 @@ public class GameManager : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
+
     }
 	
 	// Update is called once per frame

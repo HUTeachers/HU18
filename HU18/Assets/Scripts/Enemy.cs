@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageAble {
 
-	private int Health = 100;
+    [SerializeField]
+    private int Health = 100;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +30,7 @@ public class Enemy : MonoBehaviour, IDamageAble {
 
 	private void Die()
 	{
-		Destroy(this.gameObject);
+        GetComponent<EnemySpawnControl>().Die();
 	}
 
 	public int GetHealth()
