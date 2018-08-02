@@ -14,7 +14,7 @@ public class FaceForward : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        transform.rotation = Quaternion.Euler(0, 0, Tools.VelocityToAngle(rb2d.velocity, 90f));
+        transform.rotation = Quaternion.Euler(0, 0, Tools.VelocityToAngle(rb2d.velocity, offset));
     }
 
 
