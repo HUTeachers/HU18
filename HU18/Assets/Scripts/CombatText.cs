@@ -25,8 +25,8 @@ public class CombatText : MonoBehaviour
         tt.GetComponent<Text>().text = damage.ToString();
         Vector3 viewPos = Camera.main.WorldToViewportPoint(damagetaker.transform.position);
         RectTransform rect = tt.GetComponent<RectTransform>();
-        //rect.anchorMin = viewPos;
-        //rect.anchorMax = viewPos;
+        rect.anchorMin = viewPos;
+        rect.anchorMax = viewPos;
     }
 
     private void OnDisable()
