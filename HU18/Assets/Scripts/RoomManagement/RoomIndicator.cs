@@ -19,6 +19,9 @@ public class RoomIndicator : MonoBehaviour {
     [SerializeField]
     private DoorDirection direction;
 
+    [SerializeField]
+    private KeyEnum requiredKey = KeyEnum.None;
+
     public string GetConnectedRoom()
     {
         return connectedRoom;
@@ -34,8 +37,9 @@ public class RoomIndicator : MonoBehaviour {
     {
         if (collision.CompareTag("Player"))
         {
-            if(Input.GetKeyDown(KeyCode.UpArrow))
+            if(Input.GetKeyDown(KeyCode.UpArrow) && collision.GetComponent<Inventory>().KeyCheck(requiredKey))
             {
+
                 RoomController.LoadRoom(connectedRoom);
             }
             

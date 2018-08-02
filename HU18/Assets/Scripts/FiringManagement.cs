@@ -47,6 +47,7 @@ public class FiringManagement : MonoBehaviour
         firing = true;
         while (firing)
         {
+
             
             GameManager.fire.Invoke();
             yield return new WaitForSeconds(ModeToWeaponCoolDownTime(gunState));

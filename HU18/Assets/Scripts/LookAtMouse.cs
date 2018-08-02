@@ -5,7 +5,7 @@ using UnityEngine;
 public class LookAtMouse : MonoBehaviour {
     private const int ClampedRotationLimit = 3;
     private const int UnClamlpedRotation = 99;
-    Vector3 temp;
+    Vector3 cameraPoint;
 	float angle;
 
     public bool ClampRotation = false;
@@ -24,9 +24,9 @@ public class LookAtMouse : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        temp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        temp -= transform.position;
-        angle = Mathf.Rad2Deg * Mathf.Atan2(temp.y, temp.x);
+        cameraPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        cameraPoint -= transform.position;
+        angle = Tools.VelocityToAngle(cameraPoint);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle), ClampRotation ? ClampedRotationLimit : UnClamlpedRotation);  
 	}
 }

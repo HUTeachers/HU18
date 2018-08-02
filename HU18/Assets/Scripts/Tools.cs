@@ -36,7 +36,10 @@ public static class Tools  {
     {
         return new Vector3(UnityEngine.Random.Range(-randomFactor, randomFactor), UnityEngine.Random.Range(-randomFactor, randomFactor));
     }
+    public static float VelocityToAngle(Vector3 vec3, float offset = 0f)
+    {
+        return Mathf.Rad2Deg * Mathf.Atan2(vec3.y, vec3.x) + offset;
+    }
 
-    
 
 }

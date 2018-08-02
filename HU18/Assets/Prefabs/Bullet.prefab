@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50564238305460758}
   - component: {fileID: 114660090195645774}
   - component: {fileID: 114743773221860920}
+  - component: {fileID: 114903358070676366}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -91,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LifeTime: 4
+  collisionDieTag: Foe
 --- !u!114 &114743773221860920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,6 +106,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 5
   damageTag: Foe
+--- !u!114 &114903358070676366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1621947450233224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9217b5a882e93840b7f446c55b5de6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212095407067969522
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -139,7 +152,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 24c5f0a31f907b24ba56948b2dbff862, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fff8d782ab2594fddba3dc9bc8c2db01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

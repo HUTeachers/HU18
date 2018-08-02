@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedRoom: LoaderTest
   direction: 0
+  requiredKey: 0
 --- !u!212 &212751201175796246
 SpriteRenderer:
   m_ObjectHideFlags: 1
