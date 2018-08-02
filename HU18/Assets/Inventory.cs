@@ -14,15 +14,9 @@ public class Inventory : MonoBehaviour {
         
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void AddItem(LootItem item)
     {
-        ItemCompartment item = collision.GetComponent<ItemCompartment>();
-        if (item != null)
-        {
-            items.Add(item.GetItem());
-
-            collision.gameObject.SetActive(false);
-        }
+        items.Add(item);
     }
 
     internal bool KeyCheck(KeyEnum requiredKey)

@@ -6,25 +6,38 @@ public class ItemCompartment : MonoBehaviour {
 
     [SerializeField]
     private LootItem carriedItem;
+    [SerializeField]
+    bool locked = false;
+    [SerializeField]
+    KeyEnum requiredKey = KeyEnum.None;
 
     private SpriteRenderer sr;
 
 	// Use this for initialization
 	void Start () {
         sr = GetComponent<SpriteRenderer>();
-        sr.sprite = carriedItem.InGameSprite;
-        sr.color = carriedItem.InGameColor;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+        if(!locked)
+        {
+            sr.sprite = carriedItem.InGameSprite;
+            sr.color = carriedItem.InGameColor;
+        }
+        
+        
 	}
 
-    public LootItem GetItem()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        return carriedItem;
-
+        Inventory inventory = collision.GetComponent<Inventory>();
+        if (inventory != null)
+        {
+            if(!locked || locked && inventory.KeyCheck(requiredKey))
+            {
+                inventory.AddItem(carriedItem);
+                gameObject.SetActive(false);
+            }
+            
+        }
     }
+
 }
