@@ -20,13 +20,14 @@ public class Jump : MonoBehaviour {
 
 	//det script på ground trigger (child), som undersøger om figuren er grounded
 	private GroundCheck groundCheck;
-
+    private WallCheck wallCheck;
 
 
 	// Use this for initialization
 	void Start () {
 		//finder scriptet GroundCheck, så det kan undersøges om figuren er grounded
 		groundCheck = gameObject.GetComponentInChildren <GroundCheck>();
+        wallCheck = gameObject.GetComponentInChildren <WallCheck>();
 
 
         remainingJumps = JumpCount;
@@ -52,23 +53,35 @@ public class Jump : MonoBehaviour {
 	void Update () {
 
 
-        if (groundCheck.Grounded)
-        {
-            remainingJumps = JumpCount;
-        }
+        
 		//Hvis der trykkes Space OG figuren er enten grounded, klar til doublejump eller multijump er tilsluttet, skal figuren hoppe
-        if (Input.GetKeyDown(KeyCode.Space) && remainingJumps > 0)
+        if (Input.GetKeyDown(KeyCode.Space))
 		{
-			//Ændrer figurens hastighed: x beholdes, y sættes til JumpPower, z sættes til 0
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, JumpPower), ForceMode2D.Impulse);
+
+            if (groundCheck.Grounded)
+            {
+                //Ændrer figurens hastighed: x beholdes, y sættes til JumpPower, z sættes til 0
+                remainingJumps = JumpCount;
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, JumpPower), ForceMode2D.Impulse);
+                remainingJumps--;
+
+            }
+            else if(wallCheck.GetWallStatus())
+            {
+                GetComponent<Rigidbody2D>().velocity = new Vector2(wallCheck.GetDirection() * JumpPower, JumpPower);
+            }
+            else if(remainingJumps > 0)
+            {
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, JumpPower), ForceMode2D.Impulse);
+                remainingJumps--;
+            }
 
 
-            remainingJumps--;
+            
 
 
-		}
+        }
 
 
-	
-	}
+    }
 }

@@ -18,11 +18,14 @@ public class PlayerMovementSmooth : MonoBehaviour {
 	private float deltaY;
 
 	private Rigidbody2D rb2d;
+
+    private GroundCheck groundCheck;
 	
 
 	void Start ()
 	{
-		rb2d = GetComponent<Rigidbody2D>();
+        groundCheck = GetComponentInChildren<GroundCheck>();
+        rb2d = GetComponent<Rigidbody2D>();
 
 		if (GameManager.instance.DebugMode)
 		{
@@ -47,7 +50,16 @@ public class PlayerMovementSmooth : MonoBehaviour {
 			deltaX = moveSpeed * Input.GetAxis("Horizontal");
 
 			//Her ændres objektets hastighed på x-akse. Y-værdi fastholdes.
-			rb2d.velocity = new Vector2 (deltaX, rb2d.velocity.y);
+            if(groundCheck.Grounded)
+            {
+                rb2d.velocity = new Vector2(deltaX, rb2d.velocity.y);
+            }                
+            else if(rb2d.velocity.x > -moveSpeed + 0.1f && rb2d.velocity.x < moveSpeed - 0.1f || Mathf.Sign(deltaX) != Mathf.Sign(rb2d.velocity.x))
+            {
+                
+                rb2d.AddForce(new Vector2(deltaX, 0f), ForceMode2D.Force);
+            }
+			
 		}
 
 		//Hvis right/left bevægelse er tilvalgt beregnes deltaY. Input.GetAxis er en Unity-feature, som giver bløde bevægelser.
