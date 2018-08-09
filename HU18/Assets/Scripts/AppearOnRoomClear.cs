@@ -22,6 +22,11 @@ public class AppearOnRoomClear : MonoBehaviour {
     void AppearOnClear()
     {
         GetComponent<SpriteRenderer>().enabled = true;
+        if(GetComponent<Collider2D>() != null)
+        {
+            GetComponent<Collider2D>().enabled = true;
+        }
+            
     }
 
 

@@ -130,16 +130,24 @@ public class RoomController : MonoBehaviour {
         {
             SceneManager.SetActiveScene(scene);
         }
+        
+
     }
 
     private void DisableScene(Scene scene)
     {
         foreach (GameObject go in scene.GetRootGameObjects())
         {
+            //If the objects state is not saved, save it now.
             if(!administeredObjects.ContainsKey(go))
             {
                 administeredObjects.Add(go, go.activeInHierarchy);
             }
+            else if(administeredObjects[go] != go.activeSelf)
+            {
+                administeredObjects[go] = go.activeSelf;
+            }
+            //Do the same for all children (recursively, of course) then disable.
             RecursiveChildObjectStateSave(go);
             go.SetActive(false);
         }
@@ -163,6 +171,10 @@ public class RoomController : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Saves the states of all child objects recursively.
+    /// </summary>
+    /// <param name="go"></param>
     private void RecursiveChildObjectStateSave(GameObject go)
     {
         int childcount = go.transform.childCount;

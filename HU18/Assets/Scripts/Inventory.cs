@@ -7,16 +7,22 @@ public class Inventory : MonoBehaviour {
     List<LootItem> items;
 	// Use this for initialization
 	void Start () {
+        //Makes sure that the list cannot be null.
         if(items == null)
         {
             items = new List<LootItem>();
         }
-        
+        GameManager.itemPickupEvent += AddItem;
 	}
 
-    public void AddItem(LootItem item)
+    private void AddItem(LootItem item)
     {
         items.Add(item);
+    }
+
+    public bool AllowItem(LootItem item)
+    {
+        return !items.Contains(item);
     }
 
     internal bool KeyCheck(KeyEnum requiredKey)

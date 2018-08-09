@@ -6,25 +6,23 @@ using UnityEngine.UI;
 
 public class UpdateOnFireEvent : MonoBehaviour {
     Slider slider;
-    FiringManagement fireManagement;
 	// Use this for initialization
-	void Start () {
-        GameManager.fire.AddListener(UpdateSlider);
+	void OnEnable () {
+        GameManager.heatChange.AddListener(UpdateSlider);
         slider = GetComponent<Slider>();
-        fireManagement = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<FiringManagement>();
+
+        //
+        UpdateSlider(GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<FiringManagement>().GetHeat());
+
     }
 
-    private void UpdateSlider()
+    private void UpdateSlider(float sliderHeat)
     {
-        if (fireManagement == null)
-        {
-            fireManagement = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<FiringManagement>();
-        }
-        slider.value = fireManagement.GetHeat();
+        slider.value = sliderHeat;
     }
 
     private void OnDisable()
     {
-        GameManager.fire.RemoveListener(UpdateSlider);
+        GameManager.heatChange.RemoveListener(UpdateSlider);
     }
 }

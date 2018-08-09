@@ -29,14 +29,19 @@ public class ItemCompartment : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Inventory inventory = collision.GetComponent<Inventory>();
+
         if (inventory != null)
         {
-            if(!locked || locked && inventory.KeyCheck(requiredKey))
+            if(inventory.AllowItem(carriedItem))
             {
-                inventory.AddItem(carriedItem);
-                gameObject.SetActive(false);
+                if (!locked || locked && inventory.KeyCheck(requiredKey))
+                {
+                    GameManager.itemPickupEvent.Invoke(carriedItem);
+                }
             }
-            
+
+            gameObject.SetActive(false);
+
         }
     }
 

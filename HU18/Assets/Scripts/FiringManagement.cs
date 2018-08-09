@@ -31,6 +31,7 @@ public class FiringManagement : MonoBehaviour
         GameManager.fire.AddListener(Fire);
         GameManager.fire.AddListener(SetGunState);
         GameManager.fire.AddListener(StartGunCooling);
+
     }
 
     // Update is called once per frame
@@ -47,8 +48,6 @@ public class FiringManagement : MonoBehaviour
         firing = true;
         while (firing)
         {
-
-            
             GameManager.fire.Invoke();
             yield return new WaitForSeconds(ModeToWeaponCoolDownTime(gunState));
             firing = Input.GetKey(FireKey);
@@ -76,6 +75,7 @@ public class FiringManagement : MonoBehaviour
         {
             
             heat -= cooldownPerSecond * Time.deltaTime;
+            GameManager.heatChange.Invoke(heat);
             if (heat <= 0)
             {
                 heat = 0;
@@ -117,6 +117,7 @@ public class FiringManagement : MonoBehaviour
             heat -= 0.5f;
             temp = Instantiate(BigBullet, transform.position + transform.right + Tools.RandomizeVector(0.1f), Quaternion.identity);
         }
+        GameManager.heatChange.Invoke(heat);
         AccelerateShot(temp);
     }
 
@@ -152,6 +153,7 @@ public class FiringManagement : MonoBehaviour
         GameManager.fire.RemoveListener(Fire);
         GameManager.fire.RemoveListener(SetGunState);
         GameManager.fire.RemoveListener(StartGunCooling);
+        coolingCoroutine = null;
 
     }
 

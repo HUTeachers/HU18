@@ -34,6 +34,36 @@ public class EnemySpawnEvent : UnityEvent<int>
 
 }
 
+public class HeatEvent : UnityEvent<float>
+{
+    public static HeatEvent operator +(HeatEvent left, UnityAction<float> right)
+    {
+        left.AddListener(right);
+        return left;
+    }
+
+    public static HeatEvent operator -(HeatEvent left, UnityAction<float> right)
+    {
+        left.RemoveListener(right);
+        return left;
+    }
+}
+
+public class ItemPickupEvent : UnityEvent<LootItem>
+{
+    public static ItemPickupEvent operator +(ItemPickupEvent left, UnityAction<LootItem> right)
+    {
+        left.AddListener(right);
+        return left;
+    }
+
+    public static ItemPickupEvent operator -(ItemPickupEvent left, UnityAction<LootItem> right)
+    {
+        left.RemoveListener(right);
+        return left;
+    }
+}
+
 public class GameManager : MonoBehaviour {
 
     /// <summary>
@@ -42,33 +72,37 @@ public class GameManager : MonoBehaviour {
     public static RoomStateManager stateManager;
 
     public static GameManager instance;
+
+    //Handles all damage dealt
 	public static DamageEvent damageEvent;
+
+    //Handles firing the weapon
     public static UnityEvent fire;
+
+    public static HeatEvent heatChange;
+
+    public static ItemPickupEvent itemPickupEvent;
+
     public bool DebugMode = true;
 
     
 
-    //Instance trick
+    
     private void Awake()
     {
         if(instance == null)
         {
             damageEvent = new DamageEvent();
             fire = new UnityEvent();
+            heatChange = new HeatEvent();
+            itemPickupEvent = new ItemPickupEvent();
         }
-		this.InstanceTrick(ref instance);
+        //Makes sure that there is only one game manager
+        this.InstanceTrick(ref instance);
 		
         
     }
-    // Use this for initialization
-    void Start () {
 
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void ShoutOnInvoke()
     {
