@@ -6,7 +6,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour {
     List<LootItem> items;
 	// Use this for initialization
-	void Start () {
+	void OnEnable () {
         //Makes sure that the list cannot be null.
         if(items == null)
         {
@@ -23,6 +23,11 @@ public class Inventory : MonoBehaviour {
     public bool AllowItem(LootItem item)
     {
         return !items.Contains(item);
+    }
+
+    public List<LootItem> ContainedItems()
+    {
+        return items;
     }
 
     internal bool KeyCheck(KeyEnum requiredKey)

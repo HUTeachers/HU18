@@ -6,12 +6,14 @@ public class InventoryDisplay : MonoBehaviour {
     [SerializeField]
     GameObject lootItemPrefab;
 	// Use this for initialization
-	void Start () {
-		if(GameManager.instance.DebugMode)
+	void OnEnable () {
+        foreach (LootItem item in GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>().ContainedItems())
         {
-            
+            CreateItem(item);
         }
+        
         GameManager.itemPickupEvent += CreateItem;
+
 	}
 
     public void CreateItem(LootItem lootItem)
@@ -19,6 +21,17 @@ public class InventoryDisplay : MonoBehaviour {
         
         GameObject newItem = Instantiate(lootItemPrefab, transform);
         newItem.GetComponent<InventoryItem>().UpdateItem(lootItem);
+    }
+
+    private void OnDisable()
+    {
+        GameManager.itemPickupEvent -= CreateItem;
+
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+
     }
 
 }
