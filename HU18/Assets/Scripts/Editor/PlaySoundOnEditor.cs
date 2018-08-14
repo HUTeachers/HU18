@@ -24,7 +24,8 @@ public class PlaySoundOnEditor : Editor {
 		GUI.enabled = true;
 
 		scriptRef.soundEnum = (SoundEnum)EditorGUILayout.EnumPopup("Lyd på:", scriptRef.soundEnum);
-		EditorGUILayout.Space();
+
+        EditorGUILayout.Space();
 
 		switch (scriptRef.soundEnum)
 		{
@@ -41,11 +42,13 @@ public class PlaySoundOnEditor : Editor {
 
                 int editorlistSize = Mathf.Max(0, EditorGUILayout.IntField("Antal keys", temp.Count));
 				
+                //Expand list
 				while(editorlistSize > temp.Count)
 				{
 					temp.Add(KeyCode.A);
 				}
 
+                //Shorten list
 				while(editorlistSize < temp.Count )
 				{
 					temp.RemoveAt(temp.Count - 1);
