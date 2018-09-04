@@ -37,7 +37,7 @@ public class RoomIndicator : MonoBehaviour {
     {
         if (collision.CompareTag("Player"))
         {
-            if(Input.GetKeyDown(KeyCode.UpArrow) && collision.GetComponent<Inventory>().KeyCheck(requiredKey))
+            if( (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && collision.GetComponent<Inventory>().KeyCheck(requiredKey))
             {
 
                 RoomController.LoadRoom(connectedRoom);
