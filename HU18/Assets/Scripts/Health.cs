@@ -22,6 +22,7 @@ public class Health : MonoBehaviour, IDamageAble {
 		//Hvis Health er mindre eller lig med 0 går spillet videre til scenen "Lose"
 		if (HealthValue <= 0)
 		{
+			HealthValue = 1;
 			SceneManager.LoadScene("Lose");
 		}
 
