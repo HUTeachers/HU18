@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2018.2/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2018.2/system/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_HU18.110440643.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="ScriptableObject" t="Include">
+          <e p="LootItem.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="ActivateKill.cs" t="Include" />
+          <e p="AppearOnRoomClear.cs" t="Include" />
+          <e p="BackgroundMove.cs" t="Include" />
+          <e p="CameraSmoothFollow.cs" t="Include" />
+          <e p="CombatText.cs" t="Include" />
+          <e p="DamageUpdater.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="PlaySoundOnEditor.cs" t="Include" />
+          </e>
+          <e p="Elevator.cs" t="Include" />
+          <e p="Enemy.cs" t="Include" />
+          <e p="EnemyBehavior.cs" t="Include" />
+          <e p="EnemySpawnControl.cs" t="Include" />
+          <e p="FaceForward.cs" t="Include" />
+          <e p="FiringManagement.cs" t="Include" />
+          <e p="FloatBack.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="GrabMainCamOnLoad.cs" t="Include" />
+          <e p="GroundCheck.cs" t="Include" />
+          <e p="Health.cs" t="Include" />
+          <e p="IDamageAble.cs" t="Include" />
+          <e p="Interfaces" t="Include">
+            <e p="IActivatableObject.cs" t="Include" />
+            <e p="InteractableButton.cs" t="Include" />
+          </e>
+          <e p="Inventory.cs" t="Include" />
+          <e p="InventoryDisplay.cs" t="Include" />
+          <e p="InventoryItem.cs" t="Include" />
+          <e p="ItemCompartment.cs" t="Include" />
+          <e p="LimitLifespan.cs" t="Include" />
+          <e p="LoadSceneButton.cs" t="Include" />
+          <e p="LookAtMouse.cs" t="Include" />
+          <e p="PlaySoundOn.cs" t="Include" />
+          <e p="PlayerFlipper.cs" t="Include" />
+          <e p="PlayerManagement.cs" t="Include" />
+          <e p="RandomBehavior.cs" t="Include" />
+          <e p="RequireKey.cs" t="Include" />
+          <e p="RoomManagement" t="Include">
+            <e p="RoomController.cs" t="Include" />
+            <e p="RoomIndicator.cs" t="Include" />
+          </e>
+          <e p="RoomStateManager.cs" t="Include" />
+          <e p="ShootBack.cs" t="Include" />
+          <e p="Teleport.cs" t="Include" />
+          <e p="Test.cs" t="Include" />
+          <e p="TextAnimate.cs" t="Include" />
+          <e p="Tools.cs" t="Include" />
+          <e p="UpdateOnFireEvent.cs" t="Include" />
+          <e p="WallCheck.cs" t="Include" />
+        </e>
+        <e p="YesterYearScripts" t="Include">
+          <e p="ActivateGameObjectOnTriggerEnter.cs" t="Include" />
+          <e p="AnimerSpiller.cs" t="Include" />
+          <e p="BlindWalking.cs" t="Include" />
+          <e p="CameraFollowPlayerX.cs" t="Include" />
+          <e p="CameraFollowPlayerXY.cs" t="Include" />
+          <e p="ChangeScene.cs" t="Include" />
+          <e p="ChangeSceneOnTriggerEnter.cs" t="Include" />
+          <e p="Checkpoint.cs" t="Include" />
+          <e p="CircularMovement.cs" t="Include" />
+          <e p="Climb.cs" t="Include" />
+          <e p="DealDamage.cs" t="Include" />
+          <e p="DealDamageToTag.cs" t="Include" />
+          <e p="DestroyAfterPlayerJumps.cs" t="Include" />
+          <e p="DestroyAfterTime.cs" t="Include" />
+          <e p="DestroyWhenHit.cs" t="Include" />
+          <e p="DestroyWhenWhipped.cs" t="Include" />
+          <e p="DontDestroy.cs" t="Include" />
+          <e p="Flicker.cs" t="Include" />
+          <e p="Flip.cs" t="Include" />
+          <e p="FollowGeneric.cs" t="Include" />
+          <e p="FollowPlayer.cs" t="Include" />
+          <e p="GivePoints.cs" t="Include" />
+          <e p="GivePointsGeneric.cs" t="Include" />
+          <e p="Jump.cs" t="Include" />
+          <e p="JumpMovement.cs" t="Include" />
+          <e p="KnockBack.cs" t="Include" />
+          <e p="LadderMovement.cs" t="Include" />
+          <e p="LivUI.cs" t="Include" />
+          <e p="PauseMenu.cs" t="Include" />
+          <e p="PlatformerCameraFollow.cs" t="Include" />
+          <e p="PlatformerMovement.cs" t="Include" />
+          <e p="PlayerManager.cs" t="Include" />
+          <e p="PlayerMovementFixed.cs" t="Include" />
+          <e p="PlayerMovementRotate.cs" t="Include" />
+          <e p="PlayerMovementSmooth.cs" t="Include" />
+          <e p="PointCounter.cs" t="Include" />
+          <e p="PointUI.cs" t="Include" />
+          <e p="Quit.cs" t="Include" />
+          <e p="Respawn.cs" t="Include" />
+          <e p="RespawnPlayerOnHit.cs" t="Include" />
+          <e p="RoofCheck.cs" t="Include" />
+          <e p="Rotate.cs" t="Include" />
+          <e p="Rotation.cs" t="Include" />
+          <e p="Shoot.cs" t="Include" />
+          <e p="ShooterMovement.cs" t="Include" />
+          <e p="ShooterRotation.cs" t="Include" />
+          <e p="SlutPoint.cs" t="Include" />
+          <e p="Spawner.cs" t="Include" />
+          <e p="StickOnRoof.cs" t="Include" />
+          <e p="SwitchScript.cs" t="Include" />
+          <e p="TidUI.cs" t="Include" />
+          <e p="Timer.cs" t="Include" />
+          <e p="TurnSpriteX.cs" t="Include" />
+          <e p="TwoPointMove.cs" t="Include" />
+          <e p="WallJump.cs" t="Include" />
+          <e p="Whip.cs" t="Include" />
+          <e p="WhipDirection.cs" t="Include" />
+        </e>
+      </e>
+      <e p="HU18.sln" t="IncludeFlat" />
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
