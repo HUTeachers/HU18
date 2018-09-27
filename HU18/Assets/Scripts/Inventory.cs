@@ -27,7 +27,11 @@ public class Inventory : MonoBehaviour {
 
     public List<LootItem> ContainedItems()
     {
-        return items;
+		if (items == null)
+		{
+			items = new List<LootItem>();
+		}
+		return items;
     }
 
     internal bool KeyCheck(KeyEnum requiredKey)

@@ -83,9 +83,10 @@ public class GameManager : MonoBehaviour {
 
     public static ItemPickupEvent itemPickupEvent;
 
+	public static UnityEvent jumpEvent;
+
     public bool DebugMode = true;
 
-    
 
     
     private void Awake()
@@ -96,7 +97,8 @@ public class GameManager : MonoBehaviour {
             fire = new UnityEvent();
             heatChange = new HeatEvent();
             itemPickupEvent = new ItemPickupEvent();
-        }
+			jumpEvent = new UnityEvent();
+		}
         //Makes sure that there is only one game manager
         this.InstanceTrick(ref instance);
 		

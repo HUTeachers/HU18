@@ -7,8 +7,6 @@ public class Elevator : MonoBehaviour {
     [SerializeField]
     float maxrise = 4;
 
-    public float speed = 30;
-
     private float originalY;
 	// Use this for initialization
 	void Start () {
@@ -20,11 +18,11 @@ public class Elevator : MonoBehaviour {
 	void Update () {
 		if(groundCheck != null && originalY + maxrise > transform.position.y)
         {
-            transform.position += Vector3.up * speed * Time.deltaTime;
+            transform.position += Vector3.up / 20f;
         }
         else if (groundCheck == null && originalY < transform.position.y)
         {
-            transform.position -= Vector3.up * speed * Time.deltaTime;
+            transform.position -= Vector3.up / 20f;
         }
 	}
 
