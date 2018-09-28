@@ -343,6 +343,16 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1058176042}
+    - target: {fileID: 224816341478449318, guid: 6848f4b94cad0b045b743802ff73ce06,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224250349369896298, guid: 6848f4b94cad0b045b743802ff73ce06,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6848f4b94cad0b045b743802ff73ce06, type: 2}
   m_IsPrefabAsset: 0
@@ -991,6 +1001,22 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85c7f501b52821642b2537f0d75b7aa8, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1887992152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1805076996516676, guid: ee89af4b570f2914b8a55549d3d6aad1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1093085733}
+--- !u!114 &1887992153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1887992152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5231273d343f23a49a2a0dc777f36496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1902647201
 Prefab:
   m_ObjectHideFlags: 0

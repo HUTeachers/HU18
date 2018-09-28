@@ -73,7 +73,6 @@ GameObject:
   - component: {fileID: 212748997403598038}
   - component: {fileID: 61433145581039612}
   - component: {fileID: 114423420925778832}
-  - component: {fileID: 114166830392906850}
   - component: {fileID: 50387198357088746}
   - component: {fileID: 114046282114995656}
   - component: {fileID: 95759788237047632}
@@ -399,19 +398,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClampRotation: 1
---- !u!114 &114166830392906850
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1805076996516676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f19b5c780dda4c40ab2a7a8a71b5468, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  JumpPower: 6
-  JumpCount: 1
 --- !u!114 &114174735290353528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -456,7 +442,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1805076996516676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cf1ae311552f444aaad73cc86117781, type: 3}
+  m_Script: {fileID: 11500000, guid: 772936c7cfcf03d428cadb7a347d7407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
@@ -505,9 +491,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1805076996516676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb3ec6f3577bc0a4d8a2c2536e41fd23, type: 3}
+  m_Script: {fileID: 11500000, guid: 121b3a0208f77544b9912e2e57b6465c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpPower: 6
+  JumpCount: 1
 --- !u!114 &114821416372921282
 MonoBehaviour:
   m_ObjectHideFlags: 1

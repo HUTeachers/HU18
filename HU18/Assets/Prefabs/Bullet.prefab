@@ -101,10 +101,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1621947450233224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a09527d82180b34082659824ef15a7b, type: 3}
+  m_Script: {fileID: 11500000, guid: f2cecb33e6a6f124f8d5a1c1d86716c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 5
+  amount: 4
   damageTag: Foe
 --- !u!114 &114903358070676366
 MonoBehaviour:
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9217b5a882e93840b7f446c55b5de6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: 90
 --- !u!212 &212095407067969522
 SpriteRenderer:
   m_ObjectHideFlags: 1
