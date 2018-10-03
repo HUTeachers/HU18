@@ -35,6 +35,6 @@ public class DealDamageToTag : MonoBehaviour
     //Kan bruges fra knapper
     public void DealDamageToTagButton()
 	{
-		GameObject.FindGameObjectWithTag (damageTag).GetComponent<Enemy>().TakeDamage(amount);
+		GameObject.FindGameObjectWithTag (damageTag).GetComponent<IDamageAble>().TakeDamage(amount);
 	}
 }
