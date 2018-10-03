@@ -18,13 +18,6 @@ public class Health : MonoBehaviour, IDamageAble {
 
     //void Update: Hver gang der tegnes et nyt billede
     void Update () {
-	
-		//Hvis Health er mindre eller lig med 0 går spillet videre til scenen "Lose"
-		if (HealthValue <= 0)
-		{
-			SceneManager.LoadScene("Lose");
-		}
-
         //Damage testing
         if(GameManager.instance.DebugMode && Input.GetKeyDown(KeyCode.K))
         {
@@ -43,6 +36,13 @@ public class Health : MonoBehaviour, IDamageAble {
 	{
 		HealthValue = HealthValue - damage;
         GameManager.damageEvent.Invoke(gameObject, damage);
-	}
+
+        //Hvis Health er mindre eller lig med 0 går spillet videre til scenen "Lose"
+        if (HealthValue <= 0)
+        {
+            SceneManager.LoadScene("Lose");
+            HealthValue = 100; //Fix for resets.
+        }
+    }
 	
 }

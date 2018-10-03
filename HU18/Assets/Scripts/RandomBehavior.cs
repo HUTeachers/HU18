@@ -38,6 +38,7 @@ public class RandomBehavior : MonoBehaviour {
         {
             EnemyBehavior moveBehavior = new EnemyBehavior(new Func<IEnumerator>(MoveToPlace), 20);
             Actions.Add(moveBehavior);
+            rigidbody2d = GetComponent<Rigidbody2D>();
         }
 
         if (AddShootBehavior)
@@ -131,10 +132,11 @@ public class RandomBehavior : MonoBehaviour {
 		while (Vector2.Distance(destination, transform.position) > 0.2f)
 		{
 			yield return new WaitForEndOfFrame();
-			transform.position = Vector2.MoveTowards(transform.position, destination, 0.1f);
+            transform.position = Vector2.MoveTowards(transform.position, destination, 0.1f);
 		}
 		StopCoroutine(behavior);
 	}
+
 }
 
 	
