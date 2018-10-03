@@ -22,7 +22,6 @@ public class BackgroundMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//_MainTex er en reference til texturen på materialet, for some reason.
-
         if(ScrollWithPlayer)
         {
             img.material.SetTextureOffset("_MainTex", new Vector2(player.position.x / Dampening, player.position.y / Dampening));

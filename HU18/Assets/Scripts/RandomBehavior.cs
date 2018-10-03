@@ -116,8 +116,8 @@ public class RandomBehavior : MonoBehaviour {
 	{
 		
 		Vector2 destination = new Vector2(transform.position.x, transform.position.y) + UnityEngine.Random.insideUnitCircle;
-		float timestamp = Time.timeSinceLevelLoad;
-		while (Vector2.Distance(destination, transform.position) > 0.2f && timestamp < Time.timeSinceLevelLoad +1f)
+		float timestamp = Time.timeSinceLevelLoad +0.4f;
+		while (Vector2.Distance(destination, transform.position) > 0.2f && timestamp > Time.timeSinceLevelLoad)
 		{
 			yield return new WaitForEndOfFrame();
 			rigidbody2d.AddForce(destination, ForceMode2D.Force);
