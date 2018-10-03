@@ -1020,11 +1020,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114938807793273928, guid: 0d7367d25dfbc7541b6fdb80fc6baa1b,
-        type: 2}
-      propertyPath: AddShootBehavior
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d7367d25dfbc7541b6fdb80fc6baa1b, type: 2}
   m_IsPrefabAsset: 0

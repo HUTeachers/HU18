@@ -134,7 +134,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1621947450233224, guid: 52755eaef58780940afc50b922c0766b,
     type: 2}
   AddMoveBehavior: 1
-  AddShootBehavior: 0
+  AddShootBehavior: 1
   AddRealMoveBehavior: 0
 --- !u!212 &212312162840450876
 SpriteRenderer:
