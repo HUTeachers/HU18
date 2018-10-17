@@ -19,11 +19,13 @@ public class CameraSmoothFollow : MonoBehaviour {
         playerRb = playerPos.gameObject.GetComponent<Rigidbody2D>();
         if(GameManager.instance.DebugMode)
         {
-            if (!this.CheckForTag(tag))
+#if UNITY_EDITOR
+			if (!this.CheckForTag(tag))
             {
                 Debug.LogWarning("Player Tag Not Found: " + tag);
             }
-        }
+#endif
+		}
 	}
 	
 	// Update is called once per frame

@@ -85,11 +85,13 @@ public class GameManager : MonoBehaviour {
 
 	public static UnityEvent jumpEvent;
 
-    public bool DebugMode = true;
+#if UNITY_EDITOR
+	public bool DebugMode = true;
+#else
+	public bool DebugMode = false;
+#endif
 
-
-    
-    private void Awake()
+	private void Awake()
     {
         if(instance == null)
         {

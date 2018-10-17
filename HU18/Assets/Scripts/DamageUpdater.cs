@@ -14,11 +14,13 @@ public class DamageUpdater : MonoBehaviour {
         image = GetComponent<Image>();
         if(GameManager.instance.DebugMode)
         {
-            if (!this.CheckForTag(PlayerTag))
+#if UNITY_EDITOR
+			if (!this.CheckForTag(PlayerTag))
             {
                 Debug.LogWarning("Player tag not found: " + PlayerTag);
             }
-        }
+#endif
+		}
 	}
 
     /// <summary>

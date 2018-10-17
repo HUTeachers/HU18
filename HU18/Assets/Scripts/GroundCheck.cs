@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditorInternal;
 using System.Linq;
 //Revised by Møllnitz on 24-07-18
 public class GroundCheck : MonoBehaviour {
@@ -26,11 +25,15 @@ public class GroundCheck : MonoBehaviour {
             {
                 Debug.LogWarning("GroundCheck: Y offset above zero!");
             }
-            if (!this.CheckForTag(GroundTag))
+#if UNITY_EDITOR
+
+
+			if (!this.CheckForTag(GroundTag))
             {
                 Debug.LogWarning("GroundCheck: Tag undefined, no tag available called: " + GroundTag);
             }
-        }
+#endif
+		}
 		//figur sættes fra start til ikke at være grounded
 		Grounded = false;
 	}

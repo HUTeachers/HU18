@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
+#if UNITY_EDITOR
 using UnityEditorInternal;
+#endif
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,12 +24,15 @@ public static class Tools  {
 	{
 		return GameObject.GetComponent<T>() != null;
 	}
-    public static bool CheckForTag(this MonoBehaviour GameObject, string tagCheck)
+
+#if UNITY_EDITOR
+	public static bool CheckForTag(this MonoBehaviour GameObject, string tagCheck)
     {
         return InternalEditorUtility.tags.Contains(tagCheck);
     }
+#endif
 
-    public static Vector3 Vector2ToVector3(this Vector2 vec2)
+	public static Vector3 Vector2ToVector3(this Vector2 vec2)
     {
         return new Vector3(vec2.x, vec2.y);
     }

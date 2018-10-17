@@ -15,11 +15,13 @@ public class LimitLifespan : MonoBehaviour {
 
         if(GameManager.instance.DebugMode)
         {
-            if (!this.CheckForTag(collisionDieTag))
+#if UNITY_EDITOR
+			if (!this.CheckForTag(collisionDieTag))
             {
                 Debug.LogWarning("Lifespan: Tag undefined, no tag available called: " + collisionDieTag);
             }
-        }
+#endif
+		}
 
 	}
 	
